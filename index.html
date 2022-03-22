@@ -274,7 +274,9 @@ initView();
     localStorage.setItem('current', filter);
     for(var i=0; i<data.length; i++){
     var chunk = data[i];
+	 let ward = chunk.Ward;
 
+  if(ward === filter) {
   let lat = chunk.Latitude;
   let lng = chunk.Longitude;
   let voters = parseInt(chunk.Voters);
@@ -291,11 +293,8 @@ initView();
     color = "#a50f15"
   }
 
-  let ward = chunk.Ward;
   let center = chunk.Centre;
   let Stations = chunk.Stations;
-
-  if(ward === filter) {
     let circle = L.circle([lat, lng], {
     color: "black",
     fillColor: color,
