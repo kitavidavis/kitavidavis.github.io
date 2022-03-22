@@ -262,7 +262,7 @@ initView();
   function filterByWard(filter){
     map.remove();
     addCartoDB();
-	  var num2 = 0;
+    var num2 = 0;
     var prev = localStorage.getItem('current');
     if(prev != null){
       var prevItem = document.getElementById(prev);
@@ -278,7 +278,7 @@ initView();
   let lat = chunk.Latitude;
   let lng = chunk.Longitude;
   let voters = parseInt(chunk.Voters);
-num2 = num2 + voters;
+  num2 = num2 + voters;
   if(voters < 300){
     color = "#fee5d9"
   } else if(voters > 299 && voters < 500){
@@ -311,7 +311,7 @@ num2 = num2 + voters;
   }
 
   createLegend();
-	  document.getElementById('num').innerHTML = num2;
+	  document.getElementById('num2').innerHTML = num2;
   }
 
   L.control.layers({"CartoDB": CartoDB, "OpenStreetMap": osm}).addTo(map);
