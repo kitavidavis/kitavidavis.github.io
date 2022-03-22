@@ -246,7 +246,7 @@ function initView(){
  
 
   }
- document.getElementById('num').innerHTML = "Total number of voters:"+num;
+ document.getElementById('num').innerHTML = num;
   createLegend();
 }
 
@@ -255,6 +255,7 @@ initView();
   function filterByWard(filter){
     map.remove();
     addCartoDB();
+	  var num = 0;
     var prev = localStorage.getItem('current');
     if(prev != null){
       var prevItem = document.getElementById(prev);
@@ -270,7 +271,7 @@ initView();
   let lat = chunk.Latitude;
   let lng = chunk.Longitude;
   let voters = parseInt(chunk.Voters);
-
+num = num + voters;
   if(voters < 300){
     color = "#fee5d9"
   } else if(voters > 299 && voters < 500){
@@ -303,6 +304,7 @@ initView();
   }
 
   createLegend();
+	  document.getElementById('num').innerHTML = num;
   }
 
   L.control.layers({"CartoDB": CartoDB, "OpenStreetMap": osm}).addTo(map);
