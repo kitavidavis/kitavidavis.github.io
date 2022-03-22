@@ -109,7 +109,7 @@
                       <div id="map"></div>
 			  <div id="chart">
 			  <div class="row">
-				  <div class="col-md-6 col-lg-6" style="justifyContent: center; alignItems: center"><p id="number" ></p></div>  
+				  <div class="col-md-6 col-lg-6" style="justifyContent: center; alignItems: center"><p id="num" ></p></div>  
 				   <div class="col-md-6 col-lg-6">
 					   <canvas id="canvas" style="margin-top: 10; margin-bottom: 10;"></canvas>
 				  </div>  
@@ -243,9 +243,9 @@ function initView(){
 
   circle.bindPopup(popup);
  
- document.getElementById('number').innerHTML = "Total number of voters:"+num;
-  }
 
+  }
+ document.getElementById('num').innerHTML = "Total number of voters:"+num;
   createLegend();
 }
 
