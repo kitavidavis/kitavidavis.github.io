@@ -24,7 +24,7 @@ var data = [
     "P_C_Code": 104,
     "Code": "1174/104",
     "Centre": "AKALA MARKET",
-    "Voters": "1,419",
+    "Voters": "1419",
     "Stations": 3,
     "Latitude": -0.059384,
     "Longitude": 34.42637
@@ -144,7 +144,7 @@ var data = [
     "P_C_Code": 69,
     "Code": "1173/69",
     "Centre": "BAR KALARE PRIMARY SCHOOL",
-    "Voters": "1,130",
+    "Voters": "1130",
     "Stations": 2,
     "Latitude": 0.027475,
     "Longitude": 34.527057
@@ -174,7 +174,7 @@ var data = [
     "P_C_Code": 62,
     "Code": "1172/62",
     "Centre": "BAR SAURI PRIMARY SCHOOL",
-    "Voters": "1,025",
+    "Voters": "1025",
     "Stations": 2,
     "Latitude": 0.112191,
     "Longitude": 34.521865
@@ -234,7 +234,7 @@ var data = [
     "P_C_Code": 32,
     "Code": "1170/32",
     "Centre": "GINGA VALLEY PRIMARY SCHOOL",
-    "Voters": "1,120",
+    "Voters": "1120",
     "Stations": 2,
     "Latitude": 0.057492,
     "Longitude": 34.42595
@@ -324,7 +324,7 @@ var data = [
     "P_C_Code": 53,
     "Code": "1172/53",
     "Centre": "JINA PRIMARY SCHOOL",
-    "Voters": "1,705",
+    "Voters": "1705",
     "Stations": 3,
     "Latitude": 0.075544,
     "Longitude": 34.540913
@@ -339,7 +339,7 @@ var data = [
     "P_C_Code": 43,
     "Code": "1171/43",
     "Centre": "KAGILO PRIMARY SCHOOL",
-    "Voters": "1,584",
+    "Voters": "1584",
     "Stations": 3,
     "Latitude": 0.06231,
     "Longitude": 34.448632
@@ -414,7 +414,7 @@ var data = [
     "P_C_Code": 47,
     "Code": "1171/47",
     "Centre": "KARARIW PRIMARY SCHOOL",
-    "Voters": "1,959",
+    "Voters": "1959",
     "Stations": 3,
     "Latitude": 0.080565,
     "Longitude": 34.455496
@@ -474,7 +474,7 @@ var data = [
     "P_C_Code": 42,
     "Code": "1171/42",
     "Centre": "KOJUOK PRIMARY SCHOOL",
-    "Voters": "1,277",
+    "Voters": "1277",
     "Stations": 2,
     "Latitude": 0.062791,
     "Longitude": 34.44279
@@ -579,7 +579,7 @@ var data = [
     "P_C_Code": 12,
     "Code": "1169/12",
     "Centre": "LUNDHA PRIMARY SCHOOL",
-    "Voters": "1,127",
+    "Voters": "1127",
     "Stations": 2,
     "Latitude": 0.097987,
     "Longitude": 34.441861
@@ -639,7 +639,7 @@ var data = [
     "P_C_Code": 18,
     "Code": "1169/18",
     "Centre": "MALIERA PRIMARY SCHOOL",
-    "Voters": "2,060",
+    "Voters": "2060",
     "Stations": 3,
     "Latitude": 0.10447,
     "Longitude": 34.459355
@@ -774,7 +774,7 @@ var data = [
     "P_C_Code": 55,
     "Code": "1172/55",
     "Centre": "MUHANDA PRIMARY SCHOOL",
-    "Voters": "1,308",
+    "Voters": "1308",
     "Stations": 2,
     "Latitude": 0.100775,
     "Longitude": 34.503366
@@ -819,7 +819,7 @@ var data = [
     "P_C_Code": 16,
     "Code": "1169/16",
     "Centre": "MUTUMBU PRIMARY SCHOOL",
-    "Voters": "1,649",
+    "Voters": "1649",
     "Stations": 3,
     "Latitude": 0.114506,
     "Longitude": 34.449212
@@ -879,7 +879,7 @@ var data = [
     "P_C_Code": 4,
     "Code": "1169/4",
     "Centre": "NDERE PRIMARY SCHOOL",
-    "Voters": "1,245",
+    "Voters": "1245",
     "Stations": 2,
     "Latitude": 0.134833,
     "Longitude": 34.377651
@@ -954,7 +954,7 @@ var data = [
     "P_C_Code": 27,
     "Code": "1170/27",
     "Centre": "NYAGONDO PRIMARY SCHOOL",
-    "Voters": "1,177",
+    "Voters": "1177",
     "Stations": 2,
     "Latitude": 0.048507,
     "Longitude": 34.414242
@@ -1029,7 +1029,7 @@ var data = [
     "P_C_Code": 49,
     "Code": "1171/49",
     "Centre": "NYAWARA PRIMARY SCHOOL",
-    "Voters": "1,445",
+    "Voters": "1445",
     "Stations": 3,
     "Latitude": 0.096312,
     "Longitude": 34.490349
@@ -1149,7 +1149,7 @@ var data = [
     "P_C_Code": 44,
     "Code": "1171/44",
     "Centre": "OLENGO PRIMARY SCHOOL",
-    "Voters": "1,026",
+    "Voters": "1026",
     "Stations": 2,
     "Latitude": 0.053294,
     "Longitude": 34.466542
@@ -1254,7 +1254,7 @@ var data = [
     "P_C_Code": 65,
     "Code": "1173/65",
     "Centre": "RAMULA PRIMARY SCHOOL",
-    "Voters": "1,830",
+    "Voters": "1830",
     "Stations": 3,
     "Latitude": -0.000058,
     "Longitude": 34.520067
@@ -1284,7 +1284,7 @@ var data = [
     "P_C_Code": 75,
     "Code": "1173/75",
     "Centre": "SAGAM PRIMARY SCHOOL",
-    "Voters": "1,927",
+    "Voters": "1927",
     "Stations": 3,
     "Latitude": 0.056471,
     "Longitude": 34.543385
@@ -1344,7 +1344,7 @@ var data = [
     "P_C_Code": 7,
     "Code": "1169/7",
     "Centre": "SIREMBE PRIMARY SCHOOL",
-    "Voters": "1,555",
+    "Voters": "1555",
     "Stations": 3,
     "Latitude": 0.093515,
     "Longitude": 34.397602
@@ -1389,7 +1389,7 @@ var data = [
     "P_C_Code": 57,
     "Code": "1172/57",
     "Centre": "ST. TERESA S GIRLS PRIMARY SCHOOL",
-    "Voters": "2,063",
+    "Voters": "2063",
     "Stations": 3,
     "Latitude": 0.094481,
     "Longitude": 34.532367
@@ -1584,7 +1584,7 @@ var data = [
     "P_C_Code": 56,
     "Code": "1172/56",
     "Centre": "YALA TOWNSHIP PRIMARY SCHOOL",
-    "Voters": "1,677",
+    "Voters": "1677",
     "Stations": 3,
     "Latitude": 0.095374,
     "Longitude": 34.537979
