@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gem Constituency Polling Centers</title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <style>
+            .bd-placeholder-img {
+              font-size: 1.125rem;
+              text-anchor: middle;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              user-select: none;
+            }
+      
+            @media (min-width: 768px) {
+              .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+              }
+            }
+
+            img.huechange1 { filter: hue-rotate(72deg); }
+
+            img.huechange2 { filter: hue-rotate(144deg); }
+
+            img.huechange3 { filter: hue-rotate(216deg); }
+
+            img.huechange4 { filter: hue-rotate(288deg); }
+
+            img.huechange5 { filter: hue-rotate(360deg); }
+          </style>
+          <link href="dashboard.css" rel="stylesheet">
+          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""/>
+
+            <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+    </head>
+    <body>
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Gem County</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </header>
+          <div class="container-fluid">
+              <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                      <ul class="nav flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link " id="init-view" onclick="initView()" aria-current="page" href="#">
+                            <span data-feather="home"></span>
+                            Home
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="EAST GEM" onclick="filterByWard('EAST GEM')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                              East Gem
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="SOUTH GEM" onclick="filterByWard('SOUTH GEM')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                              South Gem
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="YALA TOWNSHIP" onclick="filterByWard('YALA TOWNSHIP')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                             Yala Township
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="WEST GEM" onclick="filterByWard('WEST GEM')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                             West Gem
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link " id="NORTH GEM" onclick="filterByWard('NORTH GEM')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                             North Gem
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="CENTRAL GEM" onclick="filterByWard('CENTRAL GEM')" aria-current="page" href="#">
+                              <span data-feather="file"></span>
+                             Central Gem
+                            </a>
+                          </li>
+                      </ul>
+                    </div>
+                  </nav> 
+                  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Polling Stations</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                          <button type="button" onclick="initView()" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="map"></span>
+                            All Stations
+                          </button>
+                        </div>
+                      </div>  
+                      
+                      <div id="map"></div>
+                  </main>
+              </div>
+          </div>
+          <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+          <script src="bootstrap.bundle.min.js"></script>
+          <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+            <script src="leaflet.ajax.min.js" ></script>
+            <script src="polling_centers.json"></script>
+          <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+    <script>
+    $(window).on("resize", function () { $("#map").height($(window).height() * 0.78 ); }).trigger("resize");
+
+    var map;
+    var cartoDB;
+    var osm;
+
+    function addCartoDB(){
+
+      map = new L.map('map').setView([0.05060179495903955, 34.44423764241202], 12);
+        			// add basemaps from cartodb - darkmatter.
+			 CartoDB = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png', {
+				attribution: '&copy; GeopsyResearch, foloo; contributors: <a href="http://cartodb.com/attributions#basemaps">CartoDB</a>',
+				subdomains:'abcd',
+				minZoom:4,
+				maxZoom:15
+			}).addTo(map);
+    }
+
+    function addOSM(){
+
+        map = new L.map('map').setView([0.05060179495903955, 34.44423764241202], 12);
+        osm = L.tileLayer ('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+	           	attribution: '&copy; OSM',
+	            minZoom: 4,
+	            maxZoom: 15
+	        }).addTo(map);
+    }
+
+    function loadMapLayer(layer){
+        layer === 'cartoDB' ? addCartoDB() : layer === 'OSM' ? addOSM() : addCartoDB();
+    }
+
+    loadMapLayer();
+
+function createLegend(){
+  var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+  var classnames = ["#fee5d9", "#fcae91", "#fb6a4a", "#de2d26", "#a50f15"];
+  var div = L.DomUtil.create('div', 'info legend'),
+    grades = [1,300, 500, 1000, 1500],
+    labels = ['<b>Polling Centers</b>'],
+    from, to;
+  for (var i = 0; i < grades.length; i++) {
+    for(var k=0; k<classnames.length; k++){
+      if(i == k){
+        from = grades[i];
+    to = grades[i + 1];
+
+    labels.push(
+      '<p><label  style="width: 20px; height: 10px; padding-right: 5px; background-color:'+classnames[k]+'" ></label> ' +
+      from + (to ? '&ndash;' + to : '+') + '</p>');
+      }
+    }
+  }
+
+  div.innerHTML = labels.join('<br>');
+  return div;
+};
+
+legend.addTo(map);
+}
+
+var color;
+
+function initView(){
+  if(map != null){
+    map.remove();
+    addCartoDB();
+  }
+  var prev = localStorage.getItem('current');
+  if(prev != null){
+    var prevItem = document.getElementById(prev);
+    prevItem.classList = 'nav-link';
+  }
+
+  var item = document.getElementById('init-view');
+  item.classList = 'nav-link active';
+  localStorage.setItem('current', 'init-view');
+
+  for(var i=0; i<data.length; i++){
+    var chunk = data[i];
+
+  let lat = chunk.Latitude;
+  let lng = chunk.Longitude;
+  let voters = parseInt(chunk.Voters);
+
+  if(voters < 300){
+    color = "#fee5d9"
+  } else if(voters > 299 && voters < 500){
+    color = "#fcae91"
+  } else if(voters > 499 && voters < 1000){
+    color = "#fb6a4a"
+  } else if(voters > 999 && voters < 1499){
+    color = "#de2d26"
+  } else {
+    color = "#a50f15"
+  }
+
+  let circle = L.circle([lat, lng], {
+    color: "blue",
+    fillColor: color,
+    fillOpacity: 1,
+    weight: 1,
+    radius: 300
+}).addTo(map);
+
+  let ward = chunk.Ward;
+  let center = chunk.Centre;
+  let Stations = chunk.Stations;
+  
+  let popup = "<div class='table'><table class='table'><tbody><tr><td><strong>Centre</strong></td><td>"+center+"</td></tr><tr><td><strong>Ward</strong></td><td>"+ward+"</td></tr><tr><td><strong>Voters</strong></td><td>"+voters+"</td></tr><tr><td><strong>Stations</strong></td><td>"+Stations+"</td></tr></tbody></table></div>"
+
+  circle.bindPopup(popup);
+  }
+
+  createLegend();
+}
+
+initView();
+
+  function filterByWard(filter){
+    map.remove();
+    addCartoDB();
+    var prev = localStorage.getItem('current');
+    if(prev != null){
+      var prevItem = document.getElementById(prev);
+    prevItem.classList = 'nav-link';
+    }
+
+    var item = document.getElementById(filter);
+  item.classList = 'nav-link active';
+    localStorage.setItem('current', filter);
+    for(var i=0; i<data.length; i++){
+    var chunk = data[i];
+
+  let lat = chunk.Latitude;
+  let lng = chunk.Longitude;
+  let voters = parseInt(chunk.Voters);
+
+  if(voters < 300){
+    color = "#fee5d9"
+  } else if(voters > 299 && voters < 500){
+    color = "#fcae91"
+  } else if(voters > 499 && voters < 1000){
+    color = "#fb6a4a"
+  } else if(voters > 999 && voters < 1499){
+    color = "#de2d26"
+  } else {
+    color = "#a50f15"
+  }
+
+  let ward = chunk.Ward;
+  let center = chunk.Centre;
+  let Stations = chunk.Stations;
+
+  if(ward === filter) {
+    let circle = L.circle([lat, lng], {
+    color: "blue",
+    fillColor: color,
+    fillOpacity: 1,
+    weight: 1,
+    radius: 300
+}).addTo(map);
+  
+  let popup = "<div class='table'><table class='table'><tbody><tr><td><strong>Centre</strong></td><td>"+center+"</td></tr><tr><td><strong>Ward</strong></td><td>"+ward+"</td></tr><tr><td><strong>Voters</strong></td><td>"+voters+"</td></tr><tr><td><strong>Stations</strong></td><td>"+Stations+"</td></tr></tbody></table></div>"
+
+  circle.bindPopup(popup);
+  }
+  }
+
+  createLegend();
+  }
+
+  L.control.layers({"CartoDB": CartoDB, "OpenStreetMap": osm}).addTo(map);
+
+    </script>
+    </body>
+</html>
