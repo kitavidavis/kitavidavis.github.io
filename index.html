@@ -30,6 +30,32 @@
 
             img.huechange5 { filter: hue-rotate(360deg); }
           </style>
+	    <style type="text/css">
+		table {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		td {
+			border: 1px solid black;
+		}
+
+		.legend {
+			padding: 6px 18px;
+			background-color: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+		div.legend.leaflet-control br {
+			clear: both;
+		}
+	</style>
           <link href="dashboard.css" rel="stylesheet">
           <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
