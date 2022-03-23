@@ -45,7 +45,7 @@
           </head>
     <body>
         <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Gem</a>
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Gem County</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" id="menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -102,7 +102,7 @@
                   </nav> 
                   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Polling Stations</h1>
+                        <h1 class="h2">Polling Centres</h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
                           <button type="button" id="init" onclick="initView()" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="map"></span>
@@ -151,7 +151,7 @@
                                               
                                 });
                                 console.log(f);
-        layer.bindPopup('<table class="table" ><tr><td><strong>Ward</strong></td><td><strong>'+f.properties.ward+'</strong></td></tr><tr><td><strong>Voters</strong></td><td>'+f.properties.Voters2017+'</td></tr><tr><td><strong>Centers</strong></td><td>'+f.properties.Centers+'</td></tr></table>');
+        layer.bindPopup('<table class="table" ><tr><td><strong>Ward</strong></td><td><strong>'+f.properties.ward+'</strong></td></tr><tr><td><strong>Voters</strong></td><td>'+f.properties.Voters2017+'</td></tr><tr><td><strong>Polling Centers</strong></td><td>'+f.properties.Centers+'</td></tr></table>');
 
         
     }
@@ -295,7 +295,7 @@ function initView(){
   let center = chunk.Centre;
   let Stations = chunk.Stations;
   
-  let popup = "<div class='table'><table class='table'><tbody><tr><td><strong>Centre</strong></td><td>"+center+"</td></tr><tr><td><strong>Ward</strong></td><td>"+ward+"</td></tr><tr><td><strong>Voters</strong></td><td>"+voters+"</td></tr><tr><td><strong>Stations</strong></td><td>"+Stations+"</td></tr></tbody></table></div>"
+  let popup = "<div class='table'><table class='table'><tbody><tr><td><strong>Centre</strong></td><td>"+center+"</td></tr><tr><td><strong>Ward</strong></td><td>"+ward+"</td></tr><tr><td><strong>Voters</strong></td><td>"+voters+"</td></tr><tr><td><strong>Polling Stations</strong></td><td>"+Stations+"</td></tr></tbody></table></div>"
 
   circle.bindPopup(popup);
   }
