@@ -288,7 +288,7 @@ function initView(){
     fillColor: color,
     fillOpacity: 1,
     weight: 1,
-    radius: 300
+    radius: 200
 }).addTo(map);
 
   let ward = chunk.Ward;
@@ -306,7 +306,10 @@ setTimeout(function(){
   initView();
 }, 1000)
   function filterByWard(filter){
+    var w = window.screen.width;
+  if(w < 900){
     document.getElementById('menu-btn').click();
+  }
     map.remove();
     addCartoDB();
     var prev = localStorage.getItem('current');
@@ -317,6 +320,8 @@ setTimeout(function(){
     var item = document.getElementById(filter);
   item.classList = 'nav-link active';
     localStorage.setItem('current', filter);
+    var a;
+    var b;
     for(var i=0; i<data.length; i++){
     var chunk = data[i];
 
@@ -340,21 +345,27 @@ setTimeout(function(){
   let center = chunk.Centre;
   let Stations = chunk.Stations;
 
+
   if(ward === filter) {
     let circle = L.circle([lat, lng], {
     color: "black",
     fillColor: color,
     fillOpacity: 1,
     weight: 1,
-    radius: 300
+    radius: 200
 }).addTo(map);
   
   let popup = "<div class='table'><table class='table'><tbody><tr><td><strong>Centre</strong></td><td>"+center+"</td></tr><tr><td><strong>Ward</strong></td><td>"+ward+"</td></tr><tr><td><strong>Voters</strong></td><td>"+voters+"</td></tr><tr><td><strong>Stations</strong></td><td>"+Stations+"</td></tr></tbody></table></div>"
 
   circle.bindPopup(popup);
+
+  a = lat;
+  b = lng;
   }
   }
 geo3.addTo(map);
+
+map.setView([a, b], 12)
   createLegend();
   }
 
